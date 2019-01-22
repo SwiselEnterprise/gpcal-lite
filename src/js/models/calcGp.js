@@ -1,3 +1,4 @@
+let uuidv4 = require('uuid/v4');
 let gpArr =  [];
 
 const matchGradeScoreUni = (grade) => {
@@ -71,20 +72,20 @@ const loadSavedGp = () => {
     return gpaJSON ? JSON.parse(gpaJSON) : []
   } catch (e) {
     return []
-  } 
+  }
 }
 
 // Save the gpa to localStorage
 const saveGpStore = () => {
   localStorage.setItem('gpArr', JSON.stringify(gpArr))
-  
+
 }
 
 export const removeGpa = (gpaId) => {
   let gpId = gpArr.findIndex(gpa => gpa.id === gpaId)
   gpArr.splice(gpId, 1);
   saveGpStore();
-} 
+}
 
 export const updateGpa = (updateObj) => {
   let gpIndex = gpArr.findIndex(gpa => updateObj.id === gpa.id);
@@ -100,7 +101,7 @@ export const updateGpa = (updateObj) => {
   }
 }
 
-export const getGpa = () => gpArr; 
+export const getGpa = () => gpArr;
 
 export const add2gpArr = (gpObj) => {
   gpArr.push({
@@ -119,7 +120,7 @@ export const productCredUnitGrade = (credUnit, grade, mode) => {
   } else if(mode === "polytechnic"){
     return matchGradeScorePoly(grade) * credUnit;
   }
-  
-} 
+
+}
 
 gpArr = loadSavedGp();

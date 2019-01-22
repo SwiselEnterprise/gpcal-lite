@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="./css/main.css">
     <link rel="stylesheet" href="./css/mediaQuery.css">
-    <link rel="shortcut icon" href="./images/LogoColor.png" type="image/x-icon">
+    <link rel="shortcut icon" href="./images/Logo_color.png" type="image/x-icon">
     <title>GCal</title>
 </head>
 <body>
@@ -15,7 +15,7 @@
         <nav>
            <div id="menu-icon">
                <button class="menu-icon"><img src="./images/menu.svg" alt="open menu"></button>
-           </div> 
+           </div>
         </nav>
         <div id="gpa-display">
             <input type="hidden" id="gpaId">
@@ -24,9 +24,10 @@
             <h1>GCal</h1>
         </div>
         <center><span id="notify"></span></center>
-    </header>  
+    </header>
+    <button id="add-new-row">&plus;</button>
     <main>
-        
+
         <!-- MODE CHOOSER POPUP -->
         <dialog id="mode-popup">
             <button class="close-pop"><img class="close" src="./images/cancel_color.svg" alt="close mode popup"></button>
@@ -58,11 +59,11 @@
                         <img src="./images/fountain-pen-close-up.svg" alt="Edit GP name">
                     <input type="text" placeholder="&nbsp; Edit GP name" id="gpName" required>
                 </div>
-                
+
                 <p>Saved GPAs will be deleted if you clear app cache</p>
                 <input type="submit" class="ip_btn" id="save-btn" value="Save">
             </form>
-        </dialog>   
+        </dialog>
 
         <!-- UPDATE POPUP -->
         <dialog  id="update-popup">
@@ -72,9 +73,9 @@
                     <img src="./images/fountain-pen-close-up.svg" alt="Edit GP name">
                     <input type="text" placeholder="Edit GP name" id="gpEditName" required>
                 </div>
-                
+
                 <p>Saved GPAs will be deleted if you clear app cache</p>
-                <input type="submit" class="ip_btn" id="update-btn" value="Update">  
+                <input type="submit" class="ip_btn" id="update-btn" value="Update">
             </form>
         </dialog>
 
@@ -105,12 +106,12 @@
             <div class="addField-container">
 
             </div>
-            
+
         </section>
 
         <!-- INPUT AND CALCULATE GP UNI AREA-->
-        <section id="calcAreaUni">
-            <ul id="gpCalcUl">
+        <section id="calcAreaUni" data-shown="no">
+            <ul id="gpCalcUl" name="">
                 <li>
                     <input type="text" placeholder="Course Code" class="courseCode">
                     <input type="number" min="0" placeholder="Credit Unit" class="creditUnit">
@@ -124,7 +125,7 @@
                       <option value="F">F</option>
                     </select>
                     <button>remove</button>
-                    
+
                 </li>
                 <li>
                     <input type="text" placeholder="Course Code" class="courseCode">
@@ -139,7 +140,7 @@
                       <option value="F">F</option>
                     </select>
                     <button>remove</button>
-                    
+
                 </li>
                 <li>
                     <input type="text" placeholder="Course Code" class="courseCode">
@@ -154,17 +155,15 @@
                       <option value="F">F</option>
                     </select>
                     <button>remove</button>
-                    
+
                 </li>
             </ul>
             <center><button class="saveGpBtn">Save my GPA</button></center>
-            <div class="addField-container">
-                <button class="addGpRow"><img src="./images/Group 7.svg" alt="add GP column"></button>
-            </div>
+
         </section>
 
         <!-- INPUT AND CALCULATE GP POLY AREA-->
-        <section id="calcAreaPoly">
+        <section id="calcAreaPoly" data-shown="no">
             <ul id="gpCalcUlPoly">
                 <li>
                     <input type="text" placeholder="Course Code" class="courseCode">
@@ -225,9 +224,7 @@
                 </li>
             </ul>
             <center><button class="saveGpBtn">Save my GPA</button></center>
-            <div class="addField-container">
-                <button class="addGpRow"><img src="./images/Group 7.svg" alt="add GP column"></button>
-            </div>
+
         </section>
 
         <!-- SHOW SAVED GPs -->
@@ -240,47 +237,41 @@
                 <ul id="gpShowUl"></ul>
             </div>
             <div class="addField-container">
-                
+
             </div>
         </section>
 
         <!-- EDIT AND CALCULATE GP UNI AREA-->
-        <section id="editAreaUni">
+        <section id="editAreaUni" data-shown="no">
             <ul id="gpEditUlUni"></ul>
             <center><button class="updateGpBtn">Update my GPA</button></center>
-            <div class="addField-container">
-                <button class="addGpRowEdit"><img src="./images/Group 7.svg" alt="add GP column"></button>
-            </div>
+
         </section>
 
         <!-- EDIT AND CALCULATE GP POLY AREA-->
-        <section id="editAreaPoly">
+        <section id="editAreaPoly" data-shown="no">
             <ul id="gpEditUlPoly"></ul>
             <center><button class="updateGpBtn">Update my GPA</button></center>
-            <div class="addField-container">
-                <button class="addGpRowEdit"><img src="./images/Group 7.svg" alt="add GP column"></button>
-            </div>
+
         </section>
 
         <!-- ABOUT SECTION -->
         <section id="about">
                 <div id="abt_gcal">
                     <h5>GCal <span id="version">lite v1.0.0</span></h5>
-                    <br><br>
                     <p>
-                        An intuitive and simplistic grade point average calculator for students in different tertiary institutions.<br>  
+                        An intuitive and simplistic grade point average calculator for students in different tertiary institutions.<br>
                         Redesigned from the ground up with a beautiful and user-friendly interface.<br><br>
-                        GCALpro a more robust platform is in the pipeline. 
-                    </p><br><br>
+                        GCALpro a more robust platform is in the pipeline.
+                    </p><br>
                     <p><a href="https://fatherprada.com/blog/guide/how-to-calculate-gpa-and-cgpa/" target="_">How to match exam score to grades for University</a></p>
                     <p><a href="https://students.com.ng/calculation-of-cgpa-in-nigeria-polytechnics/" target="_">How to match exam scores to grades for Polytechnic</a></p>
-                </div><br><br>
+                </div>
                 <a id="abt_swisel" href="https://swisel.co">
                     &nbsp;&nbsp;&nbsp;&copy;Swisel Enterprise 2019
                 </a>
         </section>
-    </main>  
-    <script src="./js/uuid.js"></script>
-    
+    </main>
+
 </body>
 </html>

@@ -2,15 +2,20 @@ import { elements } from "./base.js";
 import { add2gpArr, getGpa, removeGpa, updateGpa } from "./calcGp.js";
 
 const sectionSwitch = () => {
+  elements.addBtn.style.display = "none"
   elements.modePop.style.display = "none";
   elements.savePopup.style.display = "none";
   elements.updatePopup.style.display = "none";
   elements.noGpView.style.display = "none";
   elements.calcAreaUni.style.display = "none";
+  elements.calcAreaUni.dataset.shown = 'no';
   elements.calcAreaPoly.style.display = "none";
+  elements.calcAreaPoly.dataset.shown = 'no';
   elements.showSavedGp.style.display = "none";
   elements.editAreaUni.style.display = "none";
+  elements.editAreaUni.dataset.shown = 'no';
   elements.editAreaPoly.style.display = "none";
+  elements.editAreaPoly.dataset.shown = 'no';
   elements.aboutSec.style.display = "none";
 }
 
@@ -42,7 +47,7 @@ const addEditGpFieldUni = (gpResult) => {
       <option value="F">F</option>
     </select>
     <button>remove</button>
-    
+
   </li>
   `;
   elements.gpEditUlUni.insertAdjacentHTML('beforeend', gpEditFieldHtml);
@@ -68,7 +73,6 @@ const addEditGpFieldPoly = (gpResult) => {
       <option value="F0">F0</option>
     </select>
     <button>remove</button>
-    
   </li>
   `;
   elements.gpEditUlPoly.insertAdjacentHTML('beforeend', gpEditFieldHtml);
@@ -89,7 +93,6 @@ export const createGpFieldUni = () => {
         <option value="F">F</option>
       </select>
       <button>remove</button>
-      
     </li>
   `;
 }
@@ -119,21 +122,40 @@ export const createGpFieldPoly = () => {
 }
 
 export const addGpField = (mode) => {
-  if (mode === "university") {
-    elements.gpCalcUl.insertAdjacentHTML('beforeend', createGpFieldUni());
-    let h = elements.gpCalcUl.clientHeight;
-    window.scrollTo({
-      top: h,
-      behavior: 'smooth'
-    })
-  }else if(mode === "polytechnic"){
-    elements.gpCalcUlPoly.insertAdjacentHTML('beforeend', createGpFieldPoly());
-    let h = elements.gpCalcUlPoly.clientHeight;
-    window.scrollTo({
-      top: h,
-      behavior: 'smooth'
-    })
-  }  
+  if (elements.calcAreaUni.dataset.shown == 'yes' || elements.calcAreaPoly.dataset.shown == 'yes') {
+    if (mode === "university") {
+      elements.gpCalcUl.insertAdjacentHTML('beforeend', createGpFieldUni());
+      let h = elements.gpCalcUl.clientHeight;
+      window.scrollTo({
+        top: h,
+        behavior: 'smooth'
+      })
+    }else if(mode === "polytechnic"){
+      elements.gpCalcUlPoly.insertAdjacentHTML('beforeend', createGpFieldPoly());
+      let h = elements.gpCalcUlPoly.clientHeight;
+      window.scrollTo({
+        top: h,
+        behavior: 'smooth'
+      })
+    }
+  }else if (elements.editAreaUni.dataset.shown == 'yes' || elements.editAreaPoly.dataset.shown == 'yes'){
+    if (elements.gpDisplayMode.value === "university") {
+      elements.gpEditUlUni.insertAdjacentHTML('beforeend', createGpFieldUni());
+      let h = elements.gpEditUlUni.clientHeight;
+      window.scrollTo({
+        top: h,
+        behavior: 'smooth'
+      })
+    }else if(elements.gpDisplayMode.value === "polytechnic"){
+      elements.gpEditUlPoly.insertAdjacentHTML('beforeend', createGpFieldPoly());
+      let h = elements.gpEditUlPoly.clientHeight;
+      window.scrollTo({
+        top: h,
+        behavior: 'smooth'
+      })
+    }
+  }
+
 }
 
 export const removeGpaField = (parent, child, gpaId) => {
@@ -145,13 +167,16 @@ export const showCalcArea = (mode) => {
   sectionSwitch();
   elements.gpDisplayP.innerHTML = "My Gp is"
   elements.gpDisplay.style.display = "block";
+  elements.addBtn.style.display = "block"
   elements.gpDisplay.innerHTML = "0.00";
   if (mode === "university") {
+    elements.calcAreaUni.dataset.shown = 'yes';
     elements.calcAreaUni.style.display = 'block';
   }else if(mode === "polytechnic"){
+    elements.calcAreaPoly.dataset.shown = 'yes';
     elements.calcAreaPoly.style.display = 'block';
   }
-  
+
 }
 
 export const showModePop = () => {
@@ -188,7 +213,7 @@ export const showSavedGp = () => {
     `;
     elements.gpShowUl.insertAdjacentHTML('beforeend', p);
   }
-  
+
 }
 
 export const showEditGp = (gpaId) => {
@@ -201,20 +226,23 @@ export const showEditGp = (gpaId) => {
     elements.gpDisplay.innerHTML = gpaInfo.gpa;
     elements.gpDisplay.style.display = "block";
     if (gpaInfo.mode === "university") {
+      elements.editAreaUni.dataset.shown = 'yes';
       elements.editAreaUni.style.display = 'block';
       elements.gpEditUlUni.innerHTML = "";
       if (gpaInfo.results.length > 0) {
+        elements.addBtn.style.display = "block"
         gpaInfo.results.forEach(gpResult => {
           addEditGpFieldUni(gpResult);
-        })  
+        })
       }
     }else if (gpaInfo.mode === "polytechnic") {
+      elements.editAreaPoly.dataset.shown = 'yes';
       elements.editAreaPoly.style.display = 'block';
       elements.gpEditUlPoly.innerHTML = "";
       if (gpaInfo.results.length > 0) {
         gpaInfo.results.forEach(gpResult => {
           addEditGpFieldPoly(gpResult);
-        })  
+        })
       }
     }
   }

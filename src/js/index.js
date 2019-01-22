@@ -1,3 +1,4 @@
+let uuidv4 = require('uuid/v4');
 import { showCalcArea, addGpField, showSavePop, saveGp, removeGpaField, showSavedGp, searchGp, showEditGp, createGpFieldUni, createGpFieldPoly, showUpdatePop, updateGp, showModePop, showAbout, createPopCanvasEffect, removePopCanvasEffect, trapFocus } from "./models/display.js";
 import { elements } from './models/base.js';
 import { productCredUnitGrade, getGpa } from "./models/calcGp.js";
@@ -147,7 +148,6 @@ elements.proceedBtn.addEventListener('click', (e) => {
     removePopCanvasEffect();
     showCalcArea(mode.value);
   }
-  
 });
 
 elements.showCalcArea.addEventListener('click', () => {
@@ -156,10 +156,9 @@ elements.showCalcArea.addEventListener('click', () => {
   elements.canvas.classList.toggle('open');
 })
 
-elements.addGpRowBtn.forEach(addBtn => {
-  addBtn.addEventListener('click', () => {
-    addGpField(elements.gpDisplayMode.value);
-  });
+
+elements.addBtn.addEventListener('click', () => {
+  addGpField(elements.gpDisplayMode.value);
 });
 
 ['input', 'change'].forEach(evt => {
@@ -226,7 +225,7 @@ elements.saveGp.addEventListener('click', popSaver);
 elements.showSavedGpBtn.addEventListener('click', () => { // shows the save popup
   elements.gpNameInput.focus();
   showSavedGp();
-  
+
 });
 
 elements.searchInput.addEventListener('input', (e) => {
@@ -242,7 +241,7 @@ elements.gpShowUl.addEventListener('click', (e) => { // deletes a removed gp
     removeGpaField(parent, child, gpaId);
   }
 });
-  
+
 elements.gpShowUl.addEventListener('click', (e) => { // edits a saved gp
   if (e.target.matches('.edit-gpa')) {
     let gpaId = e.target.parentNode.querySelector('input').value;
@@ -284,26 +283,6 @@ elements.gpEditUlPoly.addEventListener('click', (e) => { // deletes a removed gp
     parent.removeChild(child);
     editCalcRenderGp(parent.querySelectorAll('li'));
   }
-});
-
-elements.addGpRowEdit.forEach(btn => {
-  btn.addEventListener('click', () => {
-    if (elements.gpDisplayMode.value === "university") {
-      elements.gpEditUlUni.insertAdjacentHTML('beforeend', createGpFieldUni());
-      let h = elements.gpEditUlUni.clientHeight;
-      window.scrollTo({
-        top: h,
-        behavior: 'smooth'
-      })
-    }else if(elements.gpDisplayMode.value === "polytechnic"){
-      elements.gpEditUlPoly.insertAdjacentHTML('beforeend', createGpFieldPoly());
-      let h = elements.gpEditUlPoly.clientHeight;
-      window.scrollTo({
-        top: h,
-        behavior: 'smooth'
-      })
-    }
-  });
 });
 
 elements.showUpdateGpPopBtn.forEach(btn => {
