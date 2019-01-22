@@ -1,0 +1,488 @@
+@font-face {
+  font-family: raleway;
+  src: url('Raleway.woff2');
+}
+*{
+  margin: 0;
+  padding: 0;
+}
+html{
+  height: auto;
+  font-size: 20px;
+  font-family: 'raleway';
+  color: #4f4f4f;
+}
+button{
+  background: #437f88;
+  padding: 2%;
+  border: 0;
+  border-radius: 5px;
+  color: #fff;
+}
+#overlay {
+  position: fixed; /* Sit on top of the page content */
+  display: none; /* Hidden by default */
+  width: 100%; /* Full width (cover the whole page) */
+  height: 100%; /* Full height (cover the whole page) */
+  top: 0; 
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+  z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+  cursor: pointer; /* Add a pointer on hover */
+}
+.menu-icon img{
+  width: 30px;
+  height: 30px;
+}
+input{
+  border: 0;
+  color: #437f88;
+  background: #FAFAFA;
+}
+input:focus, select:focus, button:focus{
+  outline: none;
+}
+header{
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  background-image: linear-gradient(rgba(73, 111, 124, 0.7), rgba(73, 111, 124, 0.7)), url('../images/bg.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 240px;
+}
+header nav #menu-icon{
+  padding: 3%
+}
+header nav #menu-icon button {
+  background: transparent;
+  width: auto;
+}
+header #gpa-display {
+  text-align: center;
+  color: #fff;
+}
+#notify{
+  color: rgb(214, 228, 235);
+  font-size: 88%;
+}
+.addField-container{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 40px;
+  background: #4a6f7c;
+}
+.addField-container button{ 
+  position: absolute;
+  left: 42%;
+  bottom: 2px;
+  cursor: pointer;
+  background: transparent;
+}
+.addField-container button img{ 
+  width: 50px;
+  height: 50px;
+}
+.addField-container a {
+  text-decoration: none;
+  position: absolute;
+  right: 5px;
+  bottom: 2px;
+  padding-right: 5px;
+  color: #fff;
+  font-size: 50%;
+}
+
+/* ==================== CUSTOM RADIO BTN ============== */
+.container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 100%;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.container input { /* Hide the browser's default radio button */
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+.checkmark { /* Create a custom radio button */
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+  border-radius: 50%;
+}
+.container:hover input ~ .checkmark { /* On mouse-over, add a grey background color */
+  background-color: #ccc;
+}
+.container input:checked ~ .checkmark { /* When the radio button is checked, add a blue background */
+  background-color: #437f88;
+}
+.checkmark:after { /* Create the indicator (the dot/circle - hidden when not checked) */
+  content: "";
+  position: absolute;
+  display: none;
+}
+.container input:checked ~ .checkmark:after { /* Show the indicator (dot/circle) when checked */
+  display: block;
+}
+.container .checkmark:after { /* Style the indicator (dot/circle) */
+ 	top: 9px;
+	left: 9px;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: white;
+}
+
+/*=================== OFF CANVAS =====================*/
+#off-canvas{
+  width: 270px;
+  color: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #437f88;
+  opacity: 0.95;
+  height: 100%;
+  z-index: 10;
+  -webkit-transform: translate(-270px, 0);
+  transform: translate(-270px, 0);
+  transition: transform 0.3s ease;
+}
+#off-canvas.open {
+  -webkit-transform: translate(0, 0);
+  transform: translate(0, 0);
+  transition: transform 0.3s ease;
+}
+#off-canvas #close-menu{
+  position: absolute;
+  top: 3%;
+  right: 5%;
+  background: transparent;
+  width: auto;
+}
+#off-canvas #logo-part{
+  text-align: center;
+  margin-top: 15%;
+}
+#off-canvas #menu-list-container ul li{
+  padding: 3% 2%;
+  cursor: pointer;
+}
+#off-canvas #menu-list-container ul li button{
+  width: 100%;
+  text-align: left;
+  font-size: 87%;
+}
+#off-canvas #menu-list-container ul li#not-available button{
+  color: #a7b8bf;
+}
+#off-canvas #menu-list-container ul li img{
+  margin-right: 2%;
+}
+#off-canvas #menu-list-container ul li .span::after{
+  display: block;
+  height: 2px;
+  background-color: #aaa;
+  content: "";
+  width: 78%;
+  margin: 0 auto;
+  margin-top: 10px;
+}
+#off-canvas #menu-list-container{
+  padding: 3%;
+}
+#off-canvas #off-canvas-footer a{
+  padding: 4%;
+  position: absolute;
+  bottom: 0;
+  color: inherit;
+  text-decoration: none;
+  font-size: 50%;
+}
+.close{
+  width: 15px !important;
+  height: 15px !important;
+}
+/*===================== SECTION FRONT PAGE ========================*/
+#no-gp-yet{
+  margin: 30px 0;
+}
+#no-gp-yet div{
+  text-align: center;
+}
+#no-gp-yet div img{
+  margin-bottom: 13px;
+  width: 106px;
+  height: 100px;
+}
+#no-gp-yet div #frontP{
+  padding: 15px;
+}
+#no-gp-yet div button{
+  margin-bottom: 15%;
+  width: 80%;
+  padding: 3%;
+  font-size: 84%;
+}
+
+/*====================CALC AREA ==============*/
+#calcAreaUni, #calcAreaPoly {
+  display: none;
+  margin-top: 30px;
+}
+#calcAreaUni ul li, #calcAreaPoly ul li{
+  width: 98%;
+  height: 48px;
+  margin: 0 1%;
+  margin-bottom: 4%;
+  background: #FBFBFB;
+  box-shadow: -1px 4px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 0px 4px 4px 0px;
+  display: flex;
+  justify-content: space-between;
+  padding: 2% 0;
+}
+#calcAreaUni ul li input, #calcAreaPoly ul li input{
+  background: #FBFBFB;
+  text-align: center;
+  width: 25%;
+  border-bottom: 2px solid #437f88;
+}
+#calcAreaUni ul li .courseCode, #calcAreaPoly ul li .courseCode{
+  margin-left: 1%;
+}
+#calcAreaUni ul li .creditUnit, #calcAreaPoly ul li .creditUnit{
+  width: 18%;
+}
+#calcAreaUni ul li select, #calcAreaPoly ul li select{
+  border: 0;
+  background: #FBFBFB;
+  color: #80a2ad;
+  font-size: 70%;
+}
+#calcAreaUni ul li button, #calcAreaPoly ul li button{
+  margin-right: 1%;
+  width: auto;
+  margin-top: 0;
+  background: #FAFAFA;
+  padding: 2%;
+  font-size: 70%;
+  color: rgb(114, 3, 3);
+}
+.saveGpBtn, .updateGpBtn{
+  width: 80%;
+  padding: 3%;
+  margin-top: 10px;
+  margin-bottom: 28%;
+}
+
+
+/*============== POPUP MODAL FOR SAVE & UPDATE ==========**/
+#save-popup, #update-popup, #mode-popup{
+  display: none;
+  height: auto;
+  width: 69%;
+  background: #fff;
+  border: 1px solid #437f88;
+  position: fixed;
+  top: 27%;
+  left: 11%;;
+  z-index: 100;
+  padding: 1% 4% 4% 4%;
+  box-shadow: 0px 1px 2px 2px rgba(0, 0, 0, 0.32);
+  border-radius: 4px;
+}
+#save-popup #input-group, #update-popup #input-group {
+  margin-top: 12%;
+  border-bottom: 1px solid #437f88;
+}
+#save-popup p, #update-popup p{
+  font-size: 65%;
+  padding: 5px;
+}
+#save-popup .ip_btn, #update-popup .ip_btn, #mode-popup .ip_btn{
+  background: #fff;
+  width: auto;
+  color: #4a6f7c;
+  position: relative;
+  left: 74%;
+  font-weight: bold;
+}
+#save-popup .close-pop, #update-popup .close-pop, #mode-popup .close-pop{
+  background: #fff;
+  width: auto;
+  color: #4a6f7c;
+  position: relative;
+  font-size: 100%;
+  font-weight: bold;
+  padding: 2%;
+  top: 2%;
+  left: 89%;
+}
+#save-popup .close-pop img, #update-popup .close-pop img, #mode-popup .close-pop img{
+  height: 28px;
+  width: 28px;
+}
+#mode-popup ul li{
+  list-style: none;
+  margin: 8px 15px; 
+  padding: 1%;
+}
+
+/*============================= SHOW SAVED GPs ====================*/
+#show-saved-gp{
+  display: none;
+  margin-top: 10px;
+}
+#show-saved-gp #search-container{
+  position: fixed;
+  top: 260px;
+  left: 3%;
+  padding: 4%;
+  width: 85%;
+  margin: 0 auto;
+  background: #FAFAFA;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.24), 0px 0px 2px rgba(0, 0, 0, 0.12);
+  border-radius: 4px;
+}
+#show-saved-gp #search-container input{
+  font-size: 80%;
+}
+#show-saved-gp #search-container img{
+  display: inline-block;
+  
+}
+#show-saved-gp #saved-gp{
+  margin: 90px 0;
+}
+#show-saved-gp #saved-gp ul li{
+  width: 98%;
+  height: 48px;
+  margin: 0 1%;
+  margin-bottom: 4%;
+  background: #FBFBFB;
+  box-shadow: -1px 4px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 0px 4px 4px 0px;
+  display: flex;
+  justify-content: space-between;
+  padding: 2% 0;
+
+}
+#show-saved-gp #saved-gp ul li .edit-gpa{
+  width: auto;
+  background: #FAFAFA;
+  padding: 2%;
+  font-weight: bold;
+  font-size: 70%;
+  color: #2d7783;
+}
+#show-saved-gp #saved-gp ul li .remove-gpa{
+  margin-right: 2%;
+  width: auto;
+  background: #FAFAFA;
+  padding: 2%;
+  font-size: 70%;
+  color: rgb(114, 3, 3);
+}
+#show-saved-gp #saved-gp ul li .gp-name{
+  width: 127px;
+  margin-left: 5%;
+  padding-top: 4%;
+  font-size: 70%;
+  overflow-y: scroll;
+}
+#show-saved-gp #saved-gp ul li .gpa{
+  padding-top: 4%;
+  font-size: 70%;
+}
+
+/*============================= EDIT SAVED GPs ====================*/
+#editAreaUni, #editAreaPoly{
+  display: none;
+  margin-top: 10px;
+}
+#editAreaUni ul li, #editAreaPoly ul li{
+  width: 98%;
+  height: 48px;
+  margin: 0 1%;
+  margin-bottom: 4%;
+  background: #FBFBFB;
+  box-shadow: -1px 4px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 0px 4px 4px 0px;
+  display: flex;
+  justify-content: space-between;
+  padding: 2% 0;
+}
+#editAreaUni ul li input, #editAreaPoly ul li input{
+  background: #FBFBFB;
+  text-align: center;
+  width: 25%;
+  border-bottom: 2px solid #437f88;
+}
+#editAreaUni ul li .courseCode, #editAreaPoly ul li .courseCode{
+  margin-left: 1%;
+}
+#editAreaUni ul li .creditUnit, #editAreaPoly ul li .creditUnit{
+  width: 18%;
+}
+#editAreaUni ul li select, #editAreaPoly ul li select{
+  border: 0;
+  background: #FBFBFB;
+  color: #80a2ad;
+  font-size: 70%;
+}
+#editAreaUni ul li button, #editAreaPoly ul li button{
+  margin-right: 1%;
+  width: auto;
+  margin-top: 0;
+  background: #FAFAFA;
+  padding: 2%;
+  font-size: 70%;
+  color: rgb(114, 3, 3);
+}
+
+/* ================= ABOUT SECTION ================== */
+#about {
+  display: none;
+  padding: 10%;
+  color: darkslategrey;
+}
+#about div h5{
+  text-align: center;
+  font-size: 92%;
+  color: #437f88;
+}
+#about div p{
+  font-size: 65%;
+  line-height: 20px;
+  /* letter-spacing: 1px; */
+
+}
+#about div p a{
+  color: #2d7783;
+}
+#about #abt_gcal {
+  margin-bottom: 12%;
+}
+#version{
+  font-size: 12px;
+}
+#about #abt_swisel {
+  margin-bottom: 2%;
+  text-decoration: none;
+  color: inherit;
+}

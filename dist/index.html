@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/mediaQuery.css">
+    <link rel="shortcut icon" href="./images/LogoColor.png" type="image/x-icon">
+    <title>GCal</title>
+</head>
+<body>
+    <div id="overlay"></div>
+    <header>
+        <nav>
+           <div id="menu-icon">
+               <button class="menu-icon"><img src="./images/menu.svg" alt="open menu"></button>
+           </div> 
+        </nav>
+        <div id="gpa-display">
+            <input type="hidden" id="gpaId">
+            <input type="hidden" id="gpaMode" value="university">
+            <p><img src="./images/Logo.svg" width="50" height="50"></p>
+            <h1>GCal</h1>
+        </div>
+        <center><span id="notify"></span></center>
+    </header>  
+    <main>
+        
+        <!-- MODE CHOOSER POPUP -->
+        <dialog id="mode-popup">
+            <button class="close-pop"><img class="close" src="./images/cancel_color.svg" alt="close mode popup"></button>
+            <form>
+                <h5>Calculate GP for</h5>
+                <ul>
+                    <li>
+                        <label for="uni" class="container">
+                            <input type="radio" id="uni" name="mode" value="university">University
+                            <span class="checkmark"></span>
+                        </label>
+                    </li>
+                    <li>
+                        <label for="poly" class="container">
+                            <input type="radio" id="poly" name="mode" value="polytechnic">Polytechnic
+                            <span class="checkmark"></span>
+                        </label>
+                    </li><br>
+                </ul>
+                <button type="submit" class="ip_btn" id="proceed-btn">Proceed</button>
+            </form>
+        </dialog>
+
+        <!-- SAVE POPUP -->
+        <dialog id="save-popup">
+            <button class="close-pop"><img class="close" src="./images/cancel_color.svg" alt="close mode popup"></button>
+            <form>
+                <div id="input-group">
+                        <img src="./images/fountain-pen-close-up.svg" alt="Edit GP name">
+                    <input type="text" placeholder="&nbsp; Edit GP name" id="gpName" required>
+                </div>
+                
+                <p>Saved GPAs will be deleted if you clear app cache</p>
+                <input type="submit" class="ip_btn" id="save-btn" value="Save">
+            </form>
+        </dialog>   
+
+        <!-- UPDATE POPUP -->
+        <dialog  id="update-popup">
+            <button class="close-pop"><img src="./images/cancel_color.svg" alt="close mode popup"></button>
+            <form>
+                <div id="input-group">
+                    <img src="./images/fountain-pen-close-up.svg" alt="Edit GP name">
+                    <input type="text" placeholder="Edit GP name" id="gpEditName" required>
+                </div>
+                
+                <p>Saved GPAs will be deleted if you clear app cache</p>
+                <input type="submit" class="ip_btn" id="update-btn" value="Update">  
+            </form>
+        </dialog>
+
+        <!-- OFF CANVAS SECTION -->
+        <section id="off-canvas">
+            <button id="close-menu" class="menu-icon"><img class="close" src="./images/cancel.svg" alt="close-menu" width="28" height="28"></button>
+            <div id="logo-part">
+                <img src="./images/Logo.svg" alt="">
+            </div>
+            <div id="menu-list-container">
+                <ul>
+                    <li id="showSavedGpBtn"><button><img src="./images/Group.svg" alt="my GPAs"><span class="span"> My GPAs</span></button></li>
+                    <li id="showCalcArea"><button><img src="./images/calculator.svg" width="25" height="25" alt="my GPAs"><span class="span"> Calculate GP</span></button></li>
+                    <li id="about_btn"><button><img src="./images/question.svg" alt="about GCal"><span class="span"> About GCAL</span></button></li>
+                    <li id="not-available"><button><img src="./images/download.svg" alt="download GCal"><span> Download GCAL<sub>Pro</sub></span></button></li>
+                </ul>
+            </div>
+            <div id="off-canvas-footer"></div>
+        </section>
+
+        <!-- FRONT PAGE SECTION -->
+        <section id="no-gp-yet">
+            <div>
+                <img src="./images/undraw_no_data_qbuo.svg" alt="no gp yet">
+                <p id="frontP">You've not calculated any GP yet</p>
+                <button id="showCalcAreaBtn">Calculate my GPA</button>
+            </div>
+            <div class="addField-container">
+
+            </div>
+            
+        </section>
+
+        <!-- INPUT AND CALCULATE GP UNI AREA-->
+        <section id="calcAreaUni">
+            <ul id="gpCalcUl">
+                <li>
+                    <input type="text" placeholder="Course Code" class="courseCode">
+                    <input type="number" min="0" placeholder="Credit Unit" class="creditUnit">
+                    <select name="grade" class="grade">
+                      <option value="-1">Grade</option>
+                      <option value="A">A</option>
+                      <option value="B">B</option>
+                      <option value="C">C</option>
+                      <option value="D">D</option>
+                      <option value="E">E</option>
+                      <option value="F">F</option>
+                    </select>
+                    <button>remove</button>
+                    
+                </li>
+                <li>
+                    <input type="text" placeholder="Course Code" class="courseCode">
+                    <input type="number" min="0" placeholder="Credit Unit" class="creditUnit">
+                    <select name="grade" class="grade">
+                      <option value="-1">Grade</option>
+                      <option value="A">A</option>
+                      <option value="B">B</option>
+                      <option value="C">C</option>
+                      <option value="D">D</option>
+                      <option value="E">E</option>
+                      <option value="F">F</option>
+                    </select>
+                    <button>remove</button>
+                    
+                </li>
+                <li>
+                    <input type="text" placeholder="Course Code" class="courseCode">
+                    <input type="number" min="0" placeholder="Credit Unit" class="creditUnit">
+                    <select name="grade" class="grade">
+                      <option value="-1">Grade</option>
+                      <option value="A">A</option>
+                      <option value="B">B</option>
+                      <option value="C">C</option>
+                      <option value="D">D</option>
+                      <option value="E">E</option>
+                      <option value="F">F</option>
+                    </select>
+                    <button>remove</button>
+                    
+                </li>
+            </ul>
+            <center><button class="saveGpBtn">Save my GPA</button></center>
+            <div class="addField-container">
+                <button class="addGpRow"><img src="./images/Group 7.svg" alt="add GP column"></button>
+            </div>
+        </section>
+
+        <!-- INPUT AND CALCULATE GP POLY AREA-->
+        <section id="calcAreaPoly">
+            <ul id="gpCalcUlPoly">
+                <li>
+                    <input type="text" placeholder="Course Code" class="courseCode">
+                    <input type="number" min="0" placeholder="Credit Unit" class="creditUnit">
+                    <select name="grade" class="grade">
+                        <option value="-1">Grade</option>
+                        <option value="A">A</option>
+                        <option value="AB">AB</option>
+                        <option value="B">B</option>
+                        <option value="BC">BC</option>
+                        <option value="C">C</option>
+                        <option value="CD">CD</option>
+                        <option value="D">D</option>
+                        <option value="P">P</option>
+                        <option value="F3">F3</option>
+                        <option value="F2">F2</option>
+                        <option value="F0">F0</option>
+                    </select>
+                    <button>remove</button>
+                </li>
+                 <li>
+                    <input type="text" placeholder="Course Code" class="courseCode">
+                    <input type="number" min="0" placeholder="Credit Unit" class="creditUnit">
+                    <select name="grade" class="grade">
+                        <option value="-1">Grade</option>
+                        <option value="A">A</option>
+                        <option value="AB">AB</option>
+                        <option value="B">B</option>
+                        <option value="BC">BC</option>
+                        <option value="C">C</option>
+                        <option value="CD">CD</option>
+                        <option value="D">D</option>
+                        <option value="P">P</option>
+                        <option value="F3">F3</option>
+                        <option value="F2">F2</option>
+                        <option value="F0">F0</option>
+                    </select>
+                    <button>remove</button>
+                </li>
+                 <li>
+                    <input type="text" placeholder="Course Code" class="courseCode">
+                    <input type="number" min="0" placeholder="Credit Unit" class="creditUnit">
+                    <select name="grade" class="grade">
+                        <option value="-1">Grade</option>
+                        <option value="A">A</option>
+                        <option value="AB">AB</option>
+                        <option value="B">B</option>
+                        <option value="BC">BC</option>
+                        <option value="C">C</option>
+                        <option value="CD">CD</option>
+                        <option value="D">D</option>
+                        <option value="P">P</option>
+                        <option value="F3">F3</option>
+                        <option value="F2">F2</option>
+                        <option value="F0">F0</option>
+                    </select>
+                    <button>remove</button>
+                </li>
+            </ul>
+            <center><button class="saveGpBtn">Save my GPA</button></center>
+            <div class="addField-container">
+                <button class="addGpRow"><img src="./images/Group 7.svg" alt="add GP column"></button>
+            </div>
+        </section>
+
+        <!-- SHOW SAVED GPs -->
+        <section id="show-saved-gp">
+            <div id="search-container">
+                <img src="./images/Shape.svg" alt="Search">
+                <input type="text" placeholder="Search" id="search">
+            </div>
+            <div id="saved-gp">
+                <ul id="gpShowUl"></ul>
+            </div>
+            <div class="addField-container">
+                
+            </div>
+        </section>
+
+        <!-- EDIT AND CALCULATE GP UNI AREA-->
+        <section id="editAreaUni">
+            <ul id="gpEditUlUni"></ul>
+            <center><button class="updateGpBtn">Update my GPA</button></center>
+            <div class="addField-container">
+                <button class="addGpRowEdit"><img src="./images/Group 7.svg" alt="add GP column"></button>
+            </div>
+        </section>
+
+        <!-- EDIT AND CALCULATE GP POLY AREA-->
+        <section id="editAreaPoly">
+            <ul id="gpEditUlPoly"></ul>
+            <center><button class="updateGpBtn">Update my GPA</button></center>
+            <div class="addField-container">
+                <button class="addGpRowEdit"><img src="./images/Group 7.svg" alt="add GP column"></button>
+            </div>
+        </section>
+
+        <!-- ABOUT SECTION -->
+        <section id="about">
+                <div id="abt_gcal">
+                    <h5>GCal <span id="version">lite v1.0.0</span></h5>
+                    <br><br>
+                    <p>
+                        An intuitive and simplistic grade point average calculator for students in different tertiary institutions.<br>  
+                        Redesigned from the ground up with a beautiful and user-friendly interface.<br><br>
+                        GCALpro a more robust platform is in the pipeline. 
+                    </p><br><br>
+                    <p><a href="https://fatherprada.com/blog/guide/how-to-calculate-gpa-and-cgpa/" target="_">How to match exam score to grades for University</a></p>
+                    <p><a href="https://students.com.ng/calculation-of-cgpa-in-nigeria-polytechnics/" target="_">How to match exam scores to grades for Polytechnic</a></p>
+                </div><br><br>
+                <a id="abt_swisel" href="https://swisel.co">
+                    &nbsp;&nbsp;&nbsp;&copy;Swisel Enterprise 2019
+                </a>
+        </section>
+    </main>  
+    <script src="./js/uuid.js"></script>
+    
+<script type="text/javascript" src="js/bundle.js"></script></body>
+</html>

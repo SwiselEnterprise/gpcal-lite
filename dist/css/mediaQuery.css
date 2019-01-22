@@ -1,0 +1,270 @@
+@media screen and (min-width: 500px) {
+  html{
+    font-size: 22px;
+  }
+  .menu-icon img{
+    width: 38px;
+    height: 38px;
+  }
+  input{
+    font-size: 72%;
+  }
+  header{
+    height: 240px;
+  }
+  #notify{
+    font-size: 89%;
+  }
+  .addField-container button{ 
+    bottom: -12px;
+  }
+  .addField-container button img{ 
+    width: 90px;
+    height: 90px;
+  }
+  .addField-container a {
+    bottom: 3px;
+    font-size: 89%;
+  }
+  
+  /*=================== OFF CANVAS =====================*/
+  #off-canvas{
+    width: 300px;
+    -webkit-transform: translate(-300px, 0);
+    transform: translate(-300px, 0);
+  }
+  
+  /*===================== SECTION FRONT PAGE ========================*/
+  #no-gp-yet div button{
+    font-size: 88%;
+  }
+  
+  /*====================CALC AREA ==============*/
+  #calcAreaUni ul li select, #calcAreaPoly ul li select{
+    font-size: 75%;
+  }
+  #calcAreaUni ul li button, #calcAreaPoly ul li button{
+    font-size: 75%;
+  }
+  .saveGpBtn, .updateGpBtn{
+    width: 60%;
+    font-size: 88%;
+  }
+  
+  
+  /*============== POPUP MODAL FOR SAVE & UPDATE ==========**/
+  #save-popup p, #update-popup p{
+    font-size: 70%;
+  }
+  #save-popup .ip_btn, #update-popup .ip_btn, #mode-popup .ip_btn{
+    left: 78%;
+    font-size: 82%;
+  }
+  #save-popup .close-pop, #update-popup .close-pop, #mode-popup .close-pop{
+    left: 92%;
+  }
+  #save-popup .close-pop img, #update-popup .close-pop img, #mode-popup .close-pop img{
+    height: 32px;
+    width: 32px;
+  }
+  #mode-popup ul li{
+    margin: 9px 17px; 
+  }
+  
+  /*============================= SHOW SAVED GPs ====================*/
+  #show-saved-gp #search-container input{
+    font-size: 80%;
+  }
+  #show-saved-gp #saved-gp{
+    margin: 110px 0;
+  }
+  #show-saved-gp #saved-gp ul li{
+    padding: 2% 0;
+  }
+  #show-saved-gp #saved-gp ul li .edit-gpa,
+  #show-saved-gp #saved-gp ul li .remove-gpa{
+    padding: 3%;
+    font-size: 80%;
+  }
+  #show-saved-gp #saved-gp ul li .gp-name{
+    width: 127px;
+    padding-top: 3%;
+    font-size: 70%;
+  }
+  #show-saved-gp #saved-gp ul li .gpa{
+    padding-top: 4%;
+    font-size: 78%;
+  }
+  
+  /*============================= EDIT SAVED GPs ====================*/
+  #editAreaUni ul li input, #editAreaPoly ul li input{
+    width: 25%;
+  }
+  #editAreaUni ul li .creditUnit, #editAreaPoly ul li .creditUnit{
+    width: 18%;
+  }
+  #editAreaUni ul li select, #editAreaPoly ul li select{
+    font-size: 70%;
+  }
+  #editAreaUni ul li button, #editAreaPoly ul li button{
+    padding: 2%;
+    font-size: 70%;
+  }
+  
+  /* ================= ABOUT SECTION ================== */
+  #about {
+    padding: 3%;
+  }
+  #about div p{
+    font-size: 85%;
+    line-height: 28px;
+    letter-spacing: 1px;
+  }
+  #about #abt_gcal {
+    margin-bottom: 12%;
+  }
+  #about #abt_swisel {
+    margin-bottom: 2%;
+  }
+}
+
+@media screen and (min-width:700px) {
+  html{
+    font-size: 25px;
+  }
+  .menu-icon img{
+    width: 44px;
+    height: 44px;
+  }
+  input{
+    font-size: 77%;
+  }
+  header{
+    height: 290px;
+  }
+  header #gpa-display {
+    margin-bottom: 20px;
+  }
+  #notify{
+    font-size: 89%;
+  }
+  .addField-container{
+    height: 70px;
+  }
+  .addField-container button{ 
+    bottom: -5px;
+  }
+  .addField-container button img{ 
+    width: 100px;
+    height: 100px;
+  }
+  .addField-container a {
+    bottom: 4px;
+    font-size: 90%;
+  }
+  
+  /*=================== OFF CANVAS =====================*/
+  #off-canvas{
+    width: 400px;
+    -webkit-transform: translate(-400px, 0);
+    transform: translate(-400px, 0);
+  }
+  
+  /*===================== SECTION FRONT PAGE ========================*/
+  #no-gp-yet div button{
+    font-size: 89%;
+  }
+  
+  /*====================CALC AREA ==============*/
+  #calcAreaUni ul li select, #calcAreaPoly ul li select{
+    font-size: 80%;
+  }
+  #calcAreaUni ul li button, #calcAreaPoly ul li button{
+    font-size: 80%;
+  }
+  .saveGpBtn, .updateGpBtn{
+    width: 60%;
+    font-size: 88%;
+  }
+  
+  
+  /*============== POPUP MODAL FOR SAVE & UPDATE ==========**/
+  #save-popup p, #update-popup p{
+    font-size: 80%;
+  }
+  #save-popup .ip_btn, #update-popup .ip_btn, #mode-popup .ip_btn{
+    left: 78%;
+    font-size: 82%;
+  }
+  #save-popup .close-pop, #update-popup .close-pop, #mode-popup .close-pop{
+    left: 93%;
+  }
+  #save-popup .close-pop img, #update-popup .close-pop img, #mode-popup .close-pop img{
+    height: 34px;
+    width: 34px;
+  }
+  #mode-popup ul li{
+    margin: 10px 19px; 
+    padding: 2%;
+  }
+  
+  /*============================= SHOW SAVED GPs ====================*/
+  #show-saved-gp #search-container{
+    top: 312px;
+    padding: 3%;
+  }
+  #show-saved-gp #search-container input{
+    font-size: 80%;
+  }
+  #show-saved-gp #saved-gp{
+    margin: 130px 0;
+  }
+  #show-saved-gp #saved-gp ul li{
+    padding: 2% 0;
+  }
+  #show-saved-gp #saved-gp ul li .edit-gpa,
+  #show-saved-gp #saved-gp ul li .remove-gpa{
+    padding: 2%;
+    font-size: 85%;
+  }
+  #show-saved-gp #saved-gp ul li .gp-name{
+    width: 157px;
+    padding-top: 1%;
+    font-size: 70%;
+  }
+  #show-saved-gp #saved-gp ul li .gpa{
+    padding-top: 1%;
+    font-size: 85%;
+  }
+  
+  /*============================= EDIT SAVED GPs ====================*/
+  #editAreaUni ul li input, #editAreaPoly ul li input{
+    width: 25%;
+  }
+  #editAreaUni ul li .creditUnit, #editAreaPoly ul li .creditUnit{
+    width: 18%;
+  }
+  #editAreaUni ul li select, #editAreaPoly ul li select{
+    font-size: 70%;
+  }
+  #editAreaUni ul li button, #editAreaPoly ul li button{
+    padding: 2%;
+    font-size: 70%;
+  }
+  
+  /* ================= ABOUT SECTION ================== */
+  #about {
+    padding: 3%;
+  }
+  #about div p{
+    font-size: 85%;
+    line-height: 28px;
+    letter-spacing: 1px;
+  }
+  #about #abt_gcal {
+    margin-bottom: 12%;
+  }
+  #about #abt_swisel {
+    margin-bottom: 2%;
+  }
+}
